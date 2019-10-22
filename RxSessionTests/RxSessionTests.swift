@@ -18,7 +18,7 @@ class TestClient: AnyClient {
 }
 
 struct TestCall: ReactiveCall {
-    typealias ResponseType = [String: Any]
+    typealias Parser = DictionaryParser<String, Any>
     
     var request: URLRequestEncodable {
         return Request(.get, "get", query: ["x": "z"])
@@ -26,7 +26,7 @@ struct TestCall: ReactiveCall {
 }
 
 struct NotFoundCall: ReactiveCall {
-    typealias ResponseType = [String: Any]
+    typealias Parser = NoContentParser
     
     var request: URLRequestEncodable {
         return Request(.get, "status/404")

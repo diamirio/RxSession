@@ -20,6 +20,6 @@ target 'RxSessionExample' do
     
     pod 'RxSwift'
     pod 'RxCocoa'
-    pod 'Endpoints'
+    pod 'Endpoints', '~> 2.0'
 end
 

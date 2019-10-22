@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RxSession'
-  s.version          = '0.2.0'
+  s.version          = '1.0.0'
   s.summary          = 'Rx Session to use with Endpoints.'
 
 # This description is used to generate tags and improve search results.

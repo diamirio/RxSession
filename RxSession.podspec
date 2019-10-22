@@ -36,7 +36,7 @@ Rx Session to use with Endpoints. That's it...
 
   s.dependency 'RxSwift'
   s.dependency 'RxCocoa'
-  s.dependency 'Endpoints', '~> 2.0.0'
+  s.dependency 'Endpoints', '~> 2.0'
 
   s.test_spec 'Tests' do |test_spec|
     test_spec.ios.deployment_target = '9.0'

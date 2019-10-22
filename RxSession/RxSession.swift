@@ -27,11 +27,11 @@ public struct RxResult<Value> {
 }
 
 public protocol ReactiveSession {
-    func start<C: Call>(call: C) -> Single<RxResult<C.ResponseType.OutputType>>
+    func start<C: Call>(call: C) -> Single<RxResult<C.Parser.OutputType>>
 }
 
 extension Session: ReactiveSession {
-    public func start<C: Call>(call: C) -> Single<RxResult<C.ResponseType.OutputType>> {
+    public func start<C: Call>(call: C) -> Single<RxResult<C.Parser.OutputType>> {
         
         return Single.create { single in
                         
@@ -66,7 +66,7 @@ extension Reactive where Base: ReactiveCall {
     ///
     /// - Parameter client: The client that will be used to process the call.
     /// - Returns: Singe Observable containing the RxResult
-    public func response<C: Endpoints.Client>(with client: C) -> Single<RxResult<Base.ResponseType.OutputType>> {
+    public func response<C: Endpoints.Client>(with client: C) -> Single<RxResult<Base.Parser.OutputType>> {
         return Session(with: client).start(call: self.base)
     }
     
@@ -74,7 +74,7 @@ extension Reactive where Base: ReactiveCall {
     ///
     /// - Parameter client: The client that will be used to process the call.
     /// - Returns: Singe Observable containing the parsed response object
-    public func value<C: Endpoints.Client>(with client: C) -> Single<Base.ResponseType.OutputType> {
+    public func value<C: Endpoints.Client>(with client: C) -> Single<Base.Parser.OutputType> {
         return Session(with: client).start(call: self.base).map { $0.value }
     }
 }

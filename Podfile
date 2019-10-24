@@ -7,7 +7,7 @@ inhibit_all_warnings!
 target 'RxSession' do
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Endpoints'
+  pod 'Endpoints', '~> 2.0'
   
   target 'RxSessionTests' do
     inherit! :search_paths

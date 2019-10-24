@@ -8,7 +8,7 @@ PODS:
   - RxSwift (5.0.0)
 
 DEPENDENCIES:
-  - Endpoints
+  - Endpoints (~> 2.0)
   - RxCocoa
   - RxSwift
 
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 145c07244e45cc7e87ac4a2cdd3990c9519f13cd
+PODFILE CHECKSUM: 585ca50c0bd6724d18d87041c5b971f7cbf72be1
 
 COCOAPODS: 1.8.3

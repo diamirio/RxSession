@@ -16,4 +16,4 @@ jobs:
       - run: bundle install
 
       - name: Cocoapods -> lint podspec and test
-        run: bundle exec pod lib lint --verbose
+        run: bundle exec pod lib lint --verbose --platforms=ios

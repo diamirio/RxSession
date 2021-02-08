@@ -1,4 +1,4 @@
-name: Check if 
+name: pod lib lint
 on: [push]
 jobs:
   build:
@@ -10,7 +10,6 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: 2.6
 
       - run: bundle install

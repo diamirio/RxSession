@@ -11,8 +11,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+          ruby-version: 2.6
 
       - run: bundle install
 
       - name: Cocoapods -> lint podspec and test
-        run: bundle exec pod lib lint
+        run: bundle exec pod lib lint --verbose

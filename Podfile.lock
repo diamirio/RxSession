@@ -1,30 +1,31 @@
 PODS:
   - Endpoints (2.0.0)
-  - RxCocoa (5.0.0):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.0.0):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
 
 DEPENDENCIES:
   - Endpoints (~> 2.0)
-  - RxCocoa
-  - RxSwift
+  - RxCocoa (~> 6.0)
+  - RxSwift (~> 6.0)
 
 SPEC REPOS:
-  trunk:
-    - Endpoints
+  https://cdn.cocoapods.org/:
     - RxCocoa
     - RxRelay
     - RxSwift
+  trunk:
+    - Endpoints
 
 SPEC CHECKSUMS:
   Endpoints: f4ff596961d35c54b6d487220c663506283985cf
-  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
-  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
 
-PODFILE CHECKSUM: 585ca50c0bd6724d18d87041c5b971f7cbf72be1
+PODFILE CHECKSUM: c1fc059c35102894bd5c18bd42978611c9dac97b
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.10.1

@@ -11,7 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "git@github.com:tailoredmedia/Endpoints.git", .upToNextMajor(from: "0.5.0")),
-        .package(url: "git@github.com:ReactiveX/RxSwift.git", .upToNextMajor(from: "5.0.0"))
+        .package(url: "git@github.com:ReactiveX/RxSwift.git", .upToNextMajor(from: "6.0.0"))
     ],
     targets: [
         .target(

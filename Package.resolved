@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Endpoints",
+        "repositoryURL": "https://github.com/tailoredmedia/Endpoints.git",
+        "state": {
+          "branch": null,
+          "revision": "6e50dd911495504c806ec2eecda258d5d3befc02",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "c8742ed97fc2f0c015a5ea5eddefb064cd7532d2",
+          "version": "6.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

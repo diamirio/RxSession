@@ -23,7 +23,7 @@ Rx Session to use with Endpoints. That's it...
 
   s.homepage         = 'https://github.com/oanhof'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Dominik Arnhof' => 'da@tailored-apps.com', 'Mario Hahn' => 'mh@tailored-apps.com' }
+  s.author           = { 'Dominik Arnhof' => 'da@tailored-apps.com', 'Mario Hahn' => 'mh@tailored-apps.com', 'Robin Mayerhofer' => 'rm@tailored-apps.com' }
   s.source           = { :git => 'https://github.com/tailoredmedia/RxSession.git', :tag => s.version }
 
   s.ios.deployment_target = '9.0'
@@ -34,8 +34,8 @@ Rx Session to use with Endpoints. That's it...
   s.source_files = 'RxSession/**/*.swift'
   s.swift_version = '5.0'
 
-  s.dependency 'RxSwift'
-  s.dependency 'RxCocoa'
+  s.dependency 'RxSwift', '~> 6.0'
+  s.dependency 'RxCocoa', '~> 6.0'
   s.dependency 'Endpoints', '~> 2.0'
 
   s.test_spec 'Tests' do |test_spec|

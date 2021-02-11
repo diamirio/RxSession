@@ -37,12 +37,12 @@ extension Session: ReactiveSession {
                         
             let task = self.start(call: call, completion: { result in
                 if let error = result.error {
-                    single(.error(error))
+                    single(.failure(error))
                     return
                 }
                 
                 guard let value = result.value, let response = result.response else {
-                    single(.error(RxError.noElements))
+                    single(.failure(RxError.noElements))
                     return
                 }
                 
@@ -53,28 +53,5 @@ extension Session: ReactiveSession {
                 task.cancel()
             }
         }
-    }
-}
-
-/// Convenience Protocol to support call.rx
-public protocol ReactiveCall: Call, ReactiveCompatible {
-    
-}
-
-extension Reactive where Base: ReactiveCall {
-    /// Creates an Single Observable that can execute the Call.
-    ///
-    /// - Parameter client: The client that will be used to process the call.
-    /// - Returns: Singe Observable containing the RxResult
-    public func response<C: Endpoints.Client>(with client: C) -> Single<RxResult<Base.Parser.OutputType>> {
-        return Session(with: client).start(call: self.base)
-    }
-    
-    /// Creates an Single Observable that can execute the Call.
-    ///
-    /// - Parameter client: The client that will be used to process the call.
-    /// - Returns: Singe Observable containing the parsed response object
-    public func value<C: Endpoints.Client>(with client: C) -> Single<Base.Parser.OutputType> {
-        return Session(with: client).start(call: self.base).map { $0.value }
     }
 }

@@ -17,7 +17,7 @@ class TestClient: AnyClient {
     }
 }
 
-struct TestCall: ReactiveCall {
+struct TestCall: Call {
     typealias Parser = DictionaryParser<String, Any>
     
     var request: URLRequestEncodable {
@@ -25,7 +25,7 @@ struct TestCall: ReactiveCall {
     }
 }
 
-struct NotFoundCall: ReactiveCall {
+struct NotFoundCall: Call {
     typealias Parser = NoContentParser
     
     var request: URLRequestEncodable {
@@ -37,7 +37,7 @@ class RxSessionTests: XCTestCase {
 
     private var disposeBag = DisposeBag()
     private var client = TestClient()
-    private lazy var session = Session<TestClient>(with: client)
+    private lazy var session = Session(with: client)
     
     override func setUp() {
         super.setUp()
@@ -53,9 +53,6 @@ class RxSessionTests: XCTestCase {
     }
 
     func testFailingCall() {
-        let client = TestClient()
-        let session = Session<TestClient>(with: client)
-
         let call = NotFoundCall()
 
         let exp = expectation(description: "Call fails with 404")
@@ -64,7 +61,7 @@ class RxSessionTests: XCTestCase {
             .subscribe(onSuccess: { (result) in
                 XCTFail("should fail with 404")
                 exp.fulfill()
-            }, onError: { (error) in
+            }, onFailure: { (error) in
                 if case StatusCodeError.unacceptable(code: let code, reason: _) = error {
                     XCTAssertEqual(code, 404)
                 } else {
@@ -87,7 +84,7 @@ class RxSessionTests: XCTestCase {
             .subscribe(onSuccess: { (result) in
                 XCTAssertNotEqual(result.value.count, 0, "result should not be an empty dictionary")
                 exp.fulfill()
-            }, onError: { (error) in
+            }, onFailure: { (error) in
                 XCTFail("should not fail, error: \(error)")
                 exp.fulfill()
             })

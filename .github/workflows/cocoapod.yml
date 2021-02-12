@@ -1,8 +1,8 @@
-name: pod lib lint
+name: CocoaPods
 on: [push]
-jobs:
-  build:
 
+jobs:
+  lint:
     runs-on: macOS-latest
 
     steps:
@@ -17,3 +17,27 @@ jobs:
 
       - name: Cocoapods -> lint podspec and test
         run: bundle exec pod lib lint --verbose --platforms=ios
+
+
+  deploy:
+    needs: 
+      - lint
+
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/[0-9].[0-9].[0-9]')
+
+    runs-on: macOS-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: 2.6
+
+      - run: bundle install
+
+      - name: Publish Pod
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: bundle exec pod trunk push RxSession.podspec
